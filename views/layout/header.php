@@ -42,6 +42,10 @@
               </li>
             </ul>
             <div class="user_option">
+              <a class="cart_link" href="<?= BASE_URL ?>index.php?action=cart">
+                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                <span class="ml-2">Carrito (<?= (int)$cartCount ?>)</span>
+              </a>
               <a class="cart_link" href="<?= BASE_URL ?>admin/index.php">
                 <i class="fa fa-lock" aria-hidden="true"></i>
                 <span class="ml-2">Admin</span>

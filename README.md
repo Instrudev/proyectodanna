@@ -27,4 +27,5 @@ Esta versión convierte el sitio estático en una aplicación PHP con patrón MV
 
 ## Flujo principal
 - El admin ingresa al panel, crea productos con sus imágenes y gestiona stock.
-- La tienda muestra los productos creados; el botón **Comprar** registra una venta, descuenta stock y evita compras si no hay inventario.
+- La tienda muestra los productos creados; los clientes agregan ítems al carrito, ajustan cantidades y finalizan la compra simulada.
+- El checkout registra ventas, descuenta stock y bloquea compras sin inventario disponible.

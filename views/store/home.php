@@ -58,9 +58,9 @@
                   <div class="options">
                     <h6>$<?= number_format((float)$product['precio'], 2) ?></h6>
                     <?php if ((int)$product['stock'] > 0): ?>
-                      <form action="<?= BASE_URL ?>index.php?action=buy" method="POST" class="m-0">
+                      <form action="<?= BASE_URL ?>index.php?action=add_to_cart" method="POST" class="m-0">
                         <input type="hidden" name="product_id" value="<?= (int)$product['id'] ?>">
-                        <button type="submit" class="btn btn-primary">Comprar</button>
+                        <button type="submit" class="btn btn-primary">Agregar al carrito</button>
                       </form>
                     <?php else: ?>
                       <span class="badge badge-danger">Agotado</span>

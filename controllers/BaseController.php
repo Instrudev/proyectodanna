@@ -7,6 +7,7 @@ class BaseController
         extract($data);
         $baseUrl = BASE_URL;
         $assetUrl = ASSET_URL;
+        $cartCount = isset($_SESSION['cart']) ? array_sum($_SESSION['cart']) : 0;
         if ($layout[0]) {
             require BASE_PATH . '/views/' . $layout[0];
         }
