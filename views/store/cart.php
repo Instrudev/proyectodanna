@@ -1,5 +1,6 @@
 <section class="food_section layout_padding" id="cart">
   <div class="container">
+    <?php $items = $items ?? []; ?>
     <div class="heading_container heading_center mb-4">
       <h2>Tu carrito</h2>
       <p>Revisa los productos que agregaste antes de finalizar la compra.</p>
@@ -31,11 +32,16 @@
           </thead>
           <tbody>
             <?php foreach ($items as $item): ?>
-              <?php $product = $item['product']; ?>
+              <?php
+              $product = $item['product'];
+              $imagePath = (strpos($product['imagen'], 'http') === 0)
+                  ? $product['imagen']
+                  : $baseUrl . ltrim($product['imagen'], '/');
+              ?>
               <tr>
                 <td class="align-middle">
                   <div class="d-flex align-items-center">
-                    <img src="<?= $baseUrl . htmlspecialchars($product['imagen']) ?>" alt="<?= htmlspecialchars($product['nombre']) ?>" class="mr-3" style="width: 70px; height: 70px; object-fit: cover;">
+                    <img src="<?= htmlspecialchars($imagePath) ?>" alt="<?= htmlspecialchars($product['nombre']) ?>" class="mr-3" style="width: 70px; height: 70px; object-fit: cover;">
                     <div>
                       <strong><?= htmlspecialchars($product['nombre']) ?></strong>
                       <div class="text-muted small">Stock disponible: <?= (int)$product['stock'] ?></div>

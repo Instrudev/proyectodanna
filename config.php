@@ -1,5 +1,7 @@
 <?php
-session_start();
+if (session_status() !== PHP_SESSION_ACTIVE) {
+    session_start();
+}
 
 // Base settings
 if (!defined('BASE_PATH')) {
@@ -20,6 +22,9 @@ if (!defined('BASE_URL')) {
 }
 if (!defined('ASSET_URL')) {
     define('ASSET_URL', BASE_URL);
+}
+if (!defined('CART_SESSION_KEY')) {
+    define('CART_SESSION_KEY', 'carrito');
 }
 
 // Database credentials

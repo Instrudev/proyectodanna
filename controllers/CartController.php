@@ -141,17 +141,18 @@ class CartController extends BaseController
 
     private function getCart(): array
     {
-        return $_SESSION['cart'] ?? [];
+        $cart = $_SESSION[CART_SESSION_KEY] ?? [];
+        return is_array($cart) ? $cart : [];
     }
 
     private function saveCart(array $cart): void
     {
-        $_SESSION['cart'] = $cart;
+        $_SESSION[CART_SESSION_KEY] = $cart;
     }
 
     private function emptyCart(): void
     {
-        unset($_SESSION['cart']);
+        unset($_SESSION[CART_SESSION_KEY]);
     }
 
     private function buildCartItems(): array
