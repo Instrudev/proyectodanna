@@ -6,6 +6,7 @@ class BaseController
     {
         extract($data);
         $baseUrl = BASE_URL;
+        $assetUrl = ASSET_URL;
         if ($layout[0]) {
             require BASE_PATH . '/views/' . $layout[0];
         }

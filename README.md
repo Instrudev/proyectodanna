@@ -15,7 +15,7 @@ Esta versión convierte el sitio estático en una aplicación PHP con patrón MV
    ```sql
    SOURCE database.sql;
    ```
-2. Configura las credenciales en `config.php` (`DB_HOST`, `DB_NAME`, `DB_USER`, `DB_PASSWORD`) y ajusta `BASE_URL` si se despliega en un subdirectorio.
+2. Configura las credenciales en `config.php` (`DB_HOST`, `DB_NAME`, `DB_USER`, `DB_PASSWORD`). El `BASE_URL` se calcula automáticamente según la carpeta en la que se ejecute (`/public/` si usas la raíz del repo, `/` si apuntas el servidor a `public/`).
 3. Asegúrate de que `public/uploads/` tenga permisos de escritura para subir imágenes.
 4. Inicia el servidor PHP apuntando a `public/` como raíz web:
    ```bash

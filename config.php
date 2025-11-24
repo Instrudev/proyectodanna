@@ -6,8 +6,20 @@ if (!defined('BASE_PATH')) {
     define('BASE_PATH', __DIR__);
 }
 if (!defined('BASE_URL')) {
-    // Adjust BASE_URL if deploying to a subdirectory
-    define('BASE_URL', '/');
+    $scriptName = $_SERVER['SCRIPT_NAME'] ?? '';
+    $scriptDir = str_replace('\\', '/', dirname($scriptName));
+    $scriptDir = ($scriptDir === '/' || $scriptDir === '.') ? '' : rtrim($scriptDir, '/');
+
+    // Normalize so that admin routes still point to the public asset root
+    if (substr($scriptDir, -6) === '/admin') {
+        $scriptDir = substr($scriptDir, 0, -6);
+    }
+
+    $calculatedBase = $scriptDir === '' ? '/' : $scriptDir . '/';
+    define('BASE_URL', $calculatedBase);
+}
+if (!defined('ASSET_URL')) {
+    define('ASSET_URL', BASE_URL);
 }
 
 // Database credentials
